@@ -13,18 +13,25 @@ BONUS:scrivere un metodo che prende 2 oggetti e ritorna un array con
 ( SUPER BONUS se tutte) le sottostringhe presenti in entrambe 
 esempio bomba bombay -> [bo, bom, bomba, om ... ecc ...]*/
 
-let StringSplitter = class{
-    constructor(toBeSplit){
-        this.toBeSplit=toBeSplit;
+let StringSplitter = class {
+  constructor(toBeSplit) {
+    this.toBeSplit = toBeSplit;
+  }
+  getSplits(numberOfLetters) {
+    let result = " ";
+    for (let i = 0; i <= 2; i++) {
+      result = result + this.toBeSplit.substring(i, 2) + " ,";
     }
-getSplits(numberOfLetters){
-    let result= " ";
-    for(let i = 0;i<=2;i++){
-        result = result + this.toBeSplit.substr(i, 2)+" ,";
+    return result;
+  }
+  getAllSplits() {
+    let result = "";
+    for (let i = 0; i < this.toBeSplit.length; i++) {
+      for (let j = i + 1; j <= this.toBeSplit.length; j++) {
+        result = result + this.toBeSplit.substring(i, j) + " ,";
+      }
     }
-return result;
-
-}
-
-}
+    return result;
+  }
+};
 module.exports = StringSplitter;
